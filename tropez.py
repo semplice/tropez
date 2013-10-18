@@ -152,11 +152,16 @@ class GUI:
 
 
 if __name__ == "__main__":
-	cssProvider = Gtk.CssProvider()
-	cssProvider.load_from_path(CSSFILE)
-	screen = Gdk.Screen.get_default()
-	styleContext = Gtk.StyleContext()
-	styleContext.add_provider_for_screen(screen, cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
+	settings = Gtk.Settings.get_default()
+	settings.set_property("gtk-application-prefer-dark-theme", True)
+	
+	if settings.get_property("gtk-theme-name") == "SempliceNight":
+		# Add SempliceNight-specific theming
+		cssProvider = Gtk.CssProvider()
+		cssProvider.load_from_path(CSSFILE)
+		screen = Gdk.Screen.get_default()
+		styleContext = Gtk.StyleContext()
+		styleContext.add_provider_for_screen(screen, cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
 	g = GUI()
 	Gtk.main()
