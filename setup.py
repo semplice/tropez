@@ -34,5 +34,5 @@ setup(name='tropez',
 		"tropez",
       ],
 	data_files=[("/usr/share/tropez", ["tropez.glade", "tropez.css"]), ("/etc/skel/.config/autostart", ["tropez.desktop"])],
-	requires=['gi.repository.Gtk', 'gi.repository.GObject', 'gi.repository.Gdk, ''t9n', 'subprocess', 'os'],
+	requires=['gi.repository.Gtk', 'gi.repository.GObject', 'gi.repository.Gdk', 't9n', 'subprocess', 'os'],
 )
