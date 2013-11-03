@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
 # tropez - the Semplice introducer!
@@ -25,6 +25,8 @@ from gi.repository import Gtk, GObject, Gdk
 import t9n.library
 
 import os
+
+import sys
 
 import subprocess
 
@@ -112,7 +114,7 @@ class GUI:
 		# Ensure next is sensitive
 		GObject.idle_add(self.next_button.set_sensitive, True)
 
-	def __init__(self):
+	def __init__(self, with_greeter):
 		""" Initialize the GUI. """
 				
 		self.objects = {}
@@ -143,8 +145,13 @@ class GUI:
 
 		self.main.show_all()
 
-		# Show first
-		self.change_content(tropez.content.order[0])
+		# Should we greet the user?
+		if with_greeter:
+			# Show first
+			self.change_content(tropez.content.order[0])
+		else:
+			# Begin tutorial directly
+			self.begin_tutorial(self.start_button)
 
 		# Hide Next and Back
 		self.next_button.hide()
@@ -152,6 +159,12 @@ class GUI:
 
 
 if __name__ == "__main__":
+	# Internal start?
+	if len(sys.argv) > 1 and sys.argv[1] == "--with-greeter":
+		with_greeter = True
+	else:
+		with_greeter = False
+	
 	settings = Gtk.Settings.get_default()
 	settings.set_property("gtk-application-prefer-dark-theme", True)
 	
@@ -163,5 +176,5 @@ if __name__ == "__main__":
 		styleContext = Gtk.StyleContext()
 		styleContext.add_provider_for_screen(screen, cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
-	g = GUI()
+	g = GUI(with_greeter)
 	Gtk.main()
