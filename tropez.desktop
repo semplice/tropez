@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Tutorial
+Name[it_IT]=Tutorial
+Categories=Utility;
+Exec=/usr/bin/tropez --with-greeter
+Icon=face-wink
