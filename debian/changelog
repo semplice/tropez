@@ -1,3 +1,11 @@
+tropez (0.0.2) devel; urgency=low
+
+  * Remove autostart file if using --with-greeter.
+    Also ensure (in an hacky way) that tropez.desktop is not
+    parsed by the fist xdg-autostart call.
+
+ -- Eugenio Paolantonio (g7) <me@medesimo.eu>  Sat, 14 Dec 2013 20:07:46 +0100
+
 tropez (0.0.1) devel; urgency=low
 
   * Initial release
