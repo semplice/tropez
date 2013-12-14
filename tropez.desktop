@@ -6,5 +6,6 @@ Type=Application
 Name=Tutorial
 Name[it_IT]=Tutorial
 Categories=Utility;
+NotShowIn=Openbox;
 Exec=/usr/bin/tropez --with-greeter
 Icon=face-wink

@@ -162,6 +162,9 @@ if __name__ == "__main__":
 	# Internal start?
 	if len(sys.argv) > 1 and sys.argv[1] == "--with-greeter":
 		with_greeter = True
+		# Remove autostart file if any
+		autostart_file = os.path.expanduser("~/.config/autostart/tropez.desktop")
+		if os.path.exists(autostart_file): os.remove(autostart_file)
 	else:
 		with_greeter = False
 	
